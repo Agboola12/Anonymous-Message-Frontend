@@ -37,26 +37,6 @@ useEffect(() => {
 
 }, [dispatch, navigate, setComponent]); // Include setComponent in the dependency array
 
-// useEffect(() => {
-//     if(localStorage.token){
-//         axios.get(BaseUrl + "getUser").then(res => {
-//             if (res.data.success) {
-//                 dispatch(setuser(res.data.data));
-//                 setComponent( 
-//                 <div style={{position:"relative"}}>
-//                 <Outlet/>
-//                  </div>)
-//             }
-//         }).catch(err => {
-//             })
-//         }
-//         else{
-//                 navigate("/login")
-//         }
-
-// }, [])
-
-
   return component; 
 }
 

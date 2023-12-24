@@ -8,6 +8,7 @@ import Login from "./User/Login";
 import Message from "./User/Message";
 import axios from "axios";
 import UserGuard from "./User/Guard/UserGuard"
+import UserMessage from "./User/UserMessage";
 
 
 axios.interceptors.request.use((value) =>{
@@ -25,9 +26,10 @@ function App() {
         <Route path="/" element={<Land />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/message" element={<Message />} />
 
         <Route path="/" element={<UserGuard/>}>
-          <Route path="/message" element={<Message />} />
+          <Route path="/user-message" element={<UserMessage />} />
         </Route>
       </Routes>
       </Router>
