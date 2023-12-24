@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 // import { useSelector } from 'react-redux';
 
 const UserMessage = () => {
@@ -15,10 +16,9 @@ const UserMessage = () => {
       <div class="border-t border-r border-b border-l w-[85%] mt-[5em] h-[20vh] mx-auto border-secondary rounded-sm">
         <p>loresjkmvjkdsm</p>
         </div>
-        <button
-                className='bg-gradient-to-r from-secondary to-primary w-full sm:w-2/3 md:w-1/2 lg:w-3/4 xl:w-1/3 h-14 text-white font-bold py-2 px-4 rounded text-center'
-              >
-              </button>
+        <Link className='bg-gradient-to-r from-secondary to-primary w-full sm:w-2/3 md:w-1/2 lg:w-3/4 xl:w-1/3 h-14 text-white font-bold py-2 px-4 rounded text-center'>
+                    Go Back Home
+        </Link>
 
         
          </div> 
