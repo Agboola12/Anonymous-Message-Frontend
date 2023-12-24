@@ -8,7 +8,6 @@ const Message = () => {
   const message = useRef();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const { loginUser: user } = useSelector((state) => state.login)
 
 
   const handleSubmit = (e) => {
