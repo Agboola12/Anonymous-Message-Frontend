@@ -1,13 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import BaseUrl from '../BaseUrl'
 import { useSelector } from 'react-redux';
 
 const UserMessage = () => {
   const { loginUser: user } = useSelector((state) => state.login)
+  const [messgae, userMessage] = useState({})
+
 
   const Url = ()=>{
     return BaseUrl + user._id +  "/message"
+  }
+
+  useEffect(()=>{
+    getMessage();
+  },[])
+
+  const getMessage =()=>{
+    axios.get(BaseUrl + "getUser")
+            .then(res => {
+                if (res.data.success) {
+                    userMessage(res.data.data)
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
   }
   return (
     <div className='h-screen py-5 w-full bg-gradient-to-r from-secondary to-primary'>
@@ -26,7 +45,7 @@ const UserMessage = () => {
                     Go Back Home
         </Link>
         </div>
-      <p className=' text-1xl text-center mt-9 font-mono'> Copy the link below and share it to your friends {Url()}</p>
+      <p className=' text-1xl text-center mt-9 font-mono'> Copy the link below and share it to your friends</p>
       <p className=' text-1xl text-center mt-9 font-mono overflow-x-scroll'>  {Url()}</p>
              
          </div> 
