@@ -4,6 +4,9 @@ import BaseUrl from '../BaseUrl'
 // import { useSelector } from 'react-redux';
 
 const UserMessage = () => {
+  const Url = ()=>{
+    
+  }
     // const { loginUser: user } = useSelector((state) => state.login)
   return (
     <div className='h-screen py-5 w-full bg-gradient-to-r from-secondary to-primary'>
