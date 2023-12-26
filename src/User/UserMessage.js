@@ -7,7 +7,7 @@ const UserMessage = () => {
   const { loginUser: user } = useSelector((state) => state.login)
 
   const Url = ()=>{
-    return BaseUrl + user.id + "/message"
+    return BaseUrl + user._id +  "/message"
   }
   return (
     <div className='h-screen py-5 w-full bg-gradient-to-r from-secondary to-primary'>
@@ -26,9 +26,9 @@ const UserMessage = () => {
                     Go Back Home
         </Link>
         </div>
-      <p className=' text-1xl text-center mt-9 font-mono'> Copy the link below and share it to your friends</p>
-      <p className=' text-1xl text-center mt-9 font-mono'> {Url()}</p>
-        
+      <p className=' text-1xl text-center mt-9 font-mono'> Copy the link below and share it to your friends {Url()}</p>
+      <p className=' text-1xl text-center mt-9 font-mono overflow-x-scroll'>  {Url()}</p>
+             
          </div> 
     </div>
   </div>
