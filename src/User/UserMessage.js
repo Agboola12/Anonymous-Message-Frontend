@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import BaseUrl from '../BaseUrl'
+// import BaseUrl from '../BaseUrl'
 // import { useSelector } from 'react-redux';
 
 const UserMessage = () => {
   const Url = ()=>{
-    
+    BaseUrl + user.id + "/message"
   }
     // const { loginUser: user } = useSelector((state) => state.login)
   return (
@@ -26,7 +27,7 @@ const UserMessage = () => {
         </Link>
         </div>
       <p className=' text-1xl text-center mt-9 font-mono'> Copy the link below and share it to your friends</p>
-      <p className=' text-1xl text-center mt-9 font-mono'> {BaseUrl}+{user.id}</p>
+      {/* <p className=' text-1xl text-center mt-9 font-mono'> {BaseUrl}+{user.id}</p> */}
         
          </div> 
     </div>
