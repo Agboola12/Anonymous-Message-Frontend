@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import BaseUrl from '../BaseUrl'
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 const UserMessage = () => {
   const { loginUser: user } = useSelector((state) => state.login)
-  const [messgae, userMessage] = useState({})
+  const [userMessage, setUserMessage] = useState({})
 
 
   const Url = ()=>{
@@ -17,10 +18,10 @@ const UserMessage = () => {
   },[])
 
   const getMessage =()=>{
-    axios.get(BaseUrl + "getUser")
+    axios.get(BaseUrl + "getMessage")
             .then(res => {
-                if (res.data.success) {
-                    userMessage(res.data.data)
+                if (res.data.status) {
+                    setUserMessage(res.data.data)
                 }
             })
             .catch(err => {
@@ -38,7 +39,7 @@ const UserMessage = () => {
           </h1>
       <p className=' text-center'> Scroll 👇 down to check out the messages that you have received</p>
       <div class="border-t border-r border-b border-l w-[85%] mt-[5em] h-[20vh] mx-auto border-secondary rounded-sm">
-        <p>loresjkmvjkdsm</p>
+        <p>{userMessage.message}</p>
         </div>
         <div className='mt-8 text-center'>
         <Link className='bg-gradient-to-r  from-secondary to-primary w-full sm:w-2/3 md:w-1/2 lg:w-3/4 xl:w-1/3 h-16 text-white font-bold py-2 px-4 rounded text-center'>
