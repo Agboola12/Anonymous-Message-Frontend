@@ -23,7 +23,7 @@ const UserMessage = () => {
         </Link>
         </div>
       <p className=' text-1xl text-center mt-9 font-mono'> Copy the link below and share it to your friends</p>
-      <p className=' text-1xl text-center mt-9 font-mono'> {BaseUrl}+{userEv}</p>
+      <p className=' text-1xl text-center mt-9 font-mono'> {BaseUrl}+{user.id}</p>
         
          </div> 
     </div>
