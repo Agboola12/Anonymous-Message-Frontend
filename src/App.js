@@ -28,8 +28,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/message" element={<Message />} />
 
-        <Route path="/" element={<UserGuard/>}>
           <Route path="/user-message" element={<UserMessage />} />
+        <Route path="/" element={<UserGuard/>}>
         </Route>
       </Routes>
       </Router>
