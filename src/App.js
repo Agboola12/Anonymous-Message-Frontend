@@ -26,7 +26,8 @@ function App() {
         <Route path="/" element={<Land />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/message" element={<Message />} />
+        <Route path="/message/:id" element={<Message />} />
+        
 
         <Route path="/" element={<UserGuard/>}>
           <Route path="/user-message" element={<UserMessage />} />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import BaseUrl from '../BaseUrl'
 import { useSelector } from 'react-redux';
 import axios from 'axios';
@@ -7,11 +7,10 @@ import axios from 'axios';
 const UserMessage = () => {
   const { loginUser: user } = useSelector((state) => state.login)
   const [userMessage, setUserMessage] = useState({})
-
-
-  const Url = ()=>{
-    return BaseUrl + user._id +  "/message"
-  }
+  const Url = () => {
+    return `${BaseUrl}message/${user._id}`;
+  };
+  
 
   useEffect(()=>{
     getMessage();
