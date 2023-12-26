@@ -1,18 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import BaseUrl from '../BaseUrl'
-// import BaseUrl from '../BaseUrl'
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const UserMessage = () => {
   const Url = ()=>{
-    BaseUrl + user.id + "/message"
+    return BaseUrl + user.id + "/message"
   }
-    // const { loginUser: user } = useSelector((state) => state.login)
+    const { loginUser: user } = useSelector((state) => state.login)
   return (
     <div className='h-screen py-5 w-full bg-gradient-to-r from-secondary to-primary'>
     <div className='w-full h-[90vh] sm:w-2/3 md:w-1/1 lg:w-1/3 xl:w-1/3 mx-auto bg-primary text-white rounded-2xl overflow-hidden shadow-lg'>
-      {/* {user?.username} */}
+      {user?.username}
       <div className='px-6 py-4 '>
           <h1 className='text-2xl  sm:text-3xl md:text-4xl lg:text-4xl font-bold text-center text-white '>
           My Answers
@@ -27,7 +26,7 @@ const UserMessage = () => {
         </Link>
         </div>
       <p className=' text-1xl text-center mt-9 font-mono'> Copy the link below and share it to your friends</p>
-      {/* <p className=' text-1xl text-center mt-9 font-mono'> {BaseUrl}+{user.id}</p> */}
+      <p className=' text-1xl text-center mt-9 font-mono'> {Url()}</p>
         
          </div> 
     </div>
