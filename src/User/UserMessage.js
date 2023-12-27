@@ -31,7 +31,9 @@ const UserMessage = () => {
   }
   return (
     <div className='h-screen py-5 w-full bg-gradient-to-r from-secondary to-primary'>
-      {/* <Message userId={user._id} className="hidden"/> */}
+       <div style={{ display: 'none' }}>
+      <Message userId={user._id}/>
+      </div>
     <div className='w-full h-[90vh] sm:w-2/3 md:w-1/1 lg:w-1/3  xl:w-1/3 mx-auto bg-primary text-white rounded-2xl overflow-hidden shadow-lg'>
       
       <div className='px-6 py-4 '>
