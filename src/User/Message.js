@@ -1,14 +1,30 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router';
 import BaseUrl from '../BaseUrl';
 import axios from 'axios';
 
 
 const Message = () => {
+
+  // Get the full URL
+  const fullUrl = window.location.href;
+  console.log(fullUrl);
+  
+  
+  
+  
+  
+
+
+
   const message = useRef();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
+
+  // useEffect(()=>{
+  //   alert(`UserId changed to: ${userId}`);
+  // },[userId])
 
   const handleSubmit = (e) => {
     e.preventDefault();
