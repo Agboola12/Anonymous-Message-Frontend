@@ -5,13 +5,15 @@ import axios from 'axios';
 
 
 const Message = ({ userId }) => {
-  console.log(userId);
 
   const message = useRef();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
 
+  useEffect(()=>{
+    console.log (`${userId}`);
+  },[userId])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,11 +37,11 @@ const Message = ({ userId }) => {
   };
 
   return (
-        <div className='h-screen py-5 w-full bg-gradient-to-r from-secondary to-primary'>
-    <div className='w-full h-[90vh] sm:w-2/3 md:w-1/1 lg:w-1/3 xl:w-1/3 mx-auto bg-primary text-white rounded-2xl overflow-hidden shadow-lg'>
+    <div className='h-screen py-5 w-full bg-gradient-to-r from-secondary to-primary'>
+      <div className='w-full h-[90vh] sm:w-2/3 md:w-1/1 lg:w-1/3 xl:w-1/3 mx-auto bg-primary text-white rounded-2xl overflow-hidden shadow-lg'>
         <div className='px-6 py-4'>
           <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-center text-white'>
-          Say Something...
+          Say Something... 
           </h1>
           <div>
             <div className='flex flex-col mt-[10vh]'>
