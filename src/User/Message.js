@@ -2,6 +2,8 @@ import React, {  useRef, useState } from 'react'
 import { useNavigate } from 'react-router';
 import BaseUrl from '../BaseUrl';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
 
 
 const Message = () => {
