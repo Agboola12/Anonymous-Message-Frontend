@@ -17,7 +17,7 @@ const UserMessage = () => {
   },[])
 
   const getMessage =()=>{
-    axios.get(BaseUrl + "getMessage")
+    axios.get(BaseUrl + `getMessage/${user._id}`)
             .then(res => {
                 if (res.data.status) {
                     setUserMessage(res.data.data)
