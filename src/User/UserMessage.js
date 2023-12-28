@@ -18,9 +18,10 @@ const UserMessage = () => {
 
   const getMessage =()=>{
     axios.get(BaseUrl + `getMessage/${user._id}`)
-            .then(res => {
-                if (res.data.status) {
-                    setUserMessage(res.data.data)
+    .then(res => {
+      console.log(res.data)
+              if (res.data.status) {
+                setUserMessage(res.data.data)
                 }
             })
             .catch(err => {
