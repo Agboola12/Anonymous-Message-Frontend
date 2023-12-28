@@ -16,8 +16,8 @@ const Message = () => {
 
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     const data = {
+      userId: userId,
       message: message.current.value,
     };
     setIsLoading(true);
