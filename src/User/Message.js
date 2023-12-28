@@ -1,19 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, {  useRef, useState } from 'react'
 import { useNavigate } from 'react-router';
 import BaseUrl from '../BaseUrl';
 import axios from 'axios';
 
 
-const Message = ({ userId }) => {
-
+const Message = () => {
   const message = useRef();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
 
-  useEffect(()=>{
-    console.log (`${userId}`);
-  },[userId])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +22,7 @@ const Message = ({ userId }) => {
       .then((res) => {
         if (res.data.success) {
           navigate('/register');
-        }
+       }
       })
       .catch((err) => {
         console.log(err.message);
