@@ -7,21 +7,24 @@ import { useParams } from 'react-router-dom';
 
 
 const Message = () => {
-  const { userId } = useParams();
+  const { id } = useParams();
+  
   const message = useRef();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = () => {
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const data = {
-      userId: userId,
       message: message.current.value,
     };
     setIsLoading(true);
     axios
       .post(BaseUrl + 'message', data)
       .then((res) => {
-        if (res.data.status) {
+        if (res.data.success) {
           navigate('/register');
        }
       })
