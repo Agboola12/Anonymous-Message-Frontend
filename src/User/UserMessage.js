@@ -28,6 +28,11 @@ const UserMessage = () => {
                 console.log(err);
             })
   }
+
+  const logOut = () => {
+    localStorage.removeItem("token");
+    navigate("/login", { replace: true })
+  }
   return (
     <div className='h-screen py-5 w-full bg-gradient-to-r from-secondary to-primary'>
        
