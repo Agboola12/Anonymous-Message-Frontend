@@ -38,8 +38,8 @@ const UserMessage = () => {
           My Answers &nbsp; {user?.username}
           </h1>
       <p className=' text-center'> Scroll 👇 down to check out the messages that you have received</p>
-      <div class="border-t border-r border-b border-l w-[85%] mt-[5em] h-[20vh] mx-auto border-secondary rounded-sm">
         {userMessage.map((post) => (
+      <div class="border-t border-r border-b border-l w-[85%] mt-[5em] h-[20vh] mx-auto border-secondary rounded-sm">
           <p key={post._id}>
             <p>{post.message}</p>
           </p>
