@@ -15,7 +15,7 @@ const UserMessage = () => {
   
   useEffect(()=>{
     getMessage();
-  },[])
+  },[]);
 
   const getMessage =()=>{
     axios.get(BaseUrl + `getMessage/${user._id}`)

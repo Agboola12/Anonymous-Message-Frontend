@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from './logo.png';
 import BaseUrl from '../BaseUrl';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast, ToastContainer  } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -23,13 +23,21 @@ const Login = () => {
     axios
       .post(BaseUrl + 'login', data)
       .then((res) => {
-        if (res.data.success) {
+        const result = res.data.message;
+        toast.success(result, {
+          autoClose: 5000,
+        });
+        if (res.data.status) {
           localStorage.setItem('token', res.data.token);
           navigate('/user-message');
         }
       })
       .catch((err) => {
-        console.log(err.message);
+        const error = err.response?.data?.message || 'An error occurred';
+        toast.error(error, {
+          autoClose: 5000,
+        });
+        console.error(err.message);
       })
       .finally(() => {
         setIsLoading(false);
@@ -111,6 +119,7 @@ const Login = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
