@@ -89,6 +89,7 @@ const Message = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   )
 }
