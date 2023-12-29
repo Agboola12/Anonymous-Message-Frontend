@@ -46,8 +46,8 @@ const UserMessage = () => {
         </div>
               ))}
         <div className='mt-8 text-center'>
-        <Link className='bg-gradient-to-r  from-secondary to-primary w-full sm:w-2/3 md:w-1/2 lg:w-3/4 xl:w-1/3 h-16 text-white font-bold py-2 px-4 rounded text-center'>
-                    Go Back Home
+        <Link className='bg-gradient-to-r  from-secondary to-primary w-full sm:w-2/3 md:w-1/2 lg:w-3/4 xl:w-1/3 h-16 text-white font-bold py-2 px-4 rounded text-center' to="/login">
+                    LogOut
         </Link>
         </div>
       <p className=' text-1xl text-center mt-9 font-mono'> Copy the link below and share it to your friends</p>

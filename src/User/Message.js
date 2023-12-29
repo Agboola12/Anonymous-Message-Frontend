@@ -24,7 +24,7 @@ const Message = () => {
     axios
       .post(BaseUrl + 'message', data)
       .then((res) => {
-        if (res.data.success) {
+        if (res.data.status) {
           navigate('/register');
        }
       })
