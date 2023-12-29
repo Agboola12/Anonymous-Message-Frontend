@@ -23,8 +23,8 @@ function App() {
     <>
     <Router>
       <Routes>
-        <Route path="/" element={<Land />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Register />} />
+        <Route path="/land" element={<Land />} />
         <Route path="/login" element={<Login />} />
         <Route path="/message/:id" element={<Message />} />
         
