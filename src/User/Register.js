@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import BaseUrl from '../BaseUrl'
 import { useNavigate } from 'react-router-dom';
+import {  toast, ToastContainer  } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
@@ -26,14 +28,23 @@ const Register = () => {
     setIsLoading(true);
     axios.post(BaseUrl + "register", user)
       .then((res) => {
+        const result = res.data.message;
+        toast.success(result, {
+          autoClose: 3000,
+        });
         if (res.data.status) {
           console.log(res)
           navigate('/login');
         }
       })
       .catch((err) => {
-        console.log(err);
-      }).finally(() => {
+        const error = err.response?.data?.message || 'An error occurred';
+        toast.error(error, {
+          autoClose: 3000,
+        });
+        console.error(err.message);
+      })
+      .finally(() => {
         setIsLoading(false);
       })
 
@@ -126,6 +137,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   )
 }
