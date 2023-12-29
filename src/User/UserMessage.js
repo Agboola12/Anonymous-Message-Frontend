@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import BaseUrl from '../BaseUrl'
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 const UserMessage = () => {
+  const navigate = useNavigate();
   const { loginUser: user } = useSelector((state) => state.login)
   const [userMessage, setUserMessage] = useState([])
 
