@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router';
 import BaseUrl from '../BaseUrl';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import {  toast, ToastContainer  } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Message = () => {
   const { id } = useParams();
-  
   const message = useRef();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -24,12 +25,20 @@ const Message = () => {
     axios
       .post(BaseUrl + 'message', data)
       .then((res) => {
+        const result = res.data.message;
+        toast.success(result, {
+          autoClose: 5000,
+        });
         if (res.data.status) {
           navigate('/');
        }
       })
       .catch((err) => {
-        console.log(err.message);
+        const error = err.response?.data?.message || 'An error occurred';
+        toast.error(error, {
+          autoClose: 5000,
+        });
+        console.error(err.message);
       })
       .finally(() => {
         setIsLoading(false);
