@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Message = () => {
   const { id } = useParams();
+  
   const message = useRef();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +28,7 @@ const Message = () => {
       .then((res) => {
         const result = res.data.message;
         toast.success(result, {
-          autoClose: 5000,
+          autoClose: 3000,
         });
         if (res.data.status) {
           navigate('/');
@@ -36,7 +37,7 @@ const Message = () => {
       .catch((err) => {
         const error = err.response?.data?.message || 'An error occurred';
         toast.error(error, {
-          autoClose: 5000,
+          autoClose: 3000,
         });
         console.error(err.message);
       })

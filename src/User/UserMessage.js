@@ -4,7 +4,6 @@ import BaseUrl from '../BaseUrl'
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 
-
 const UserMessage = () => {
   const navigate = useNavigate();
   const { loginUser: user } = useSelector((state) => state.login)
@@ -16,7 +15,7 @@ const UserMessage = () => {
   
   useEffect(()=>{
     getMessage();
-  },[]);
+  },[])
 
   const getMessage =()=>{
     axios.get(BaseUrl + `getMessage/${user._id}`)

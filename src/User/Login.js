@@ -25,7 +25,7 @@ const Login = () => {
       .then((res) => {
         const result = res.data.message;
         toast.success(result, {
-          autoClose: 5000,
+          autoClose: 3000,
         });
         if (res.data.status) {
           localStorage.setItem('token', res.data.token);
@@ -35,7 +35,7 @@ const Login = () => {
       .catch((err) => {
         const error = err.response?.data?.message || 'An error occurred';
         toast.error(error, {
-          autoClose: 5000,
+          autoClose: 3000,
         });
         console.error(err.message);
       })
