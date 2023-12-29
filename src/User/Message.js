@@ -25,7 +25,7 @@ const Message = () => {
       .post(BaseUrl + 'message', data)
       .then((res) => {
         if (res.data.status) {
-          navigate('/register');
+          navigate('/');
        }
       })
       .catch((err) => {
