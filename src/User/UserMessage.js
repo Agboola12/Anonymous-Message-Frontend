@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const UserMessage = () => {
   const { loginUser: user } = useSelector((state) => state.login)
-  const [userMessage, setUserMessage] = useState({})
+  const [userMessage, setUserMessage] = useState([])
 
   const Url = () => {
     return `http://localhost:3000/message/${user._id}`;
@@ -19,9 +19,9 @@ const UserMessage = () => {
   const getMessage =()=>{
     axios.get(BaseUrl + `getMessage/${user._id}`)
     .then(res => {
-      console.log(res.data)
-              if (res.data.status) {
-                setUserMessage(res.data.data)
+      if (res.data.status) {
+        console.log(res.data.data);
+        setUserMessage(res.data.data)
                 }
             })
             .catch(err => {
@@ -39,8 +39,12 @@ const UserMessage = () => {
           </h1>
       <p className=' text-center'> Scroll 👇 down to check out the messages that you have received</p>
       <div class="border-t border-r border-b border-l w-[85%] mt-[5em] h-[20vh] mx-auto border-secondary rounded-sm">
-        <p>{userMessage.message}</p>
+        {userMessage.map((post) => (
+          <p key={post._id}>
+            <p>{post.message}</p>
+          </p>
         </div>
+              ))}
         <div className='mt-8 text-center'>
         <Link className='bg-gradient-to-r  from-secondary to-primary w-full sm:w-2/3 md:w-1/2 lg:w-3/4 xl:w-1/3 h-16 text-white font-bold py-2 px-4 rounded text-center'>
                     Go Back Home
