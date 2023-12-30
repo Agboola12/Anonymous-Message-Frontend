@@ -16,11 +16,10 @@ const UserGuard = () => {
 
 const navigate = useNavigate()
 useEffect(() => {
-    // ... existing code ...
 
     if (localStorage.token) {
         axios.get(BaseUrl + "getUser").then(res => {
-            if (res.data.success) {
+            if (res.data.status) {
                 dispatch(setuser(res.data.data));
                 setComponent( 
                     <div style={{ position: "relative" }}>
@@ -35,7 +34,7 @@ useEffect(() => {
         navigate("/login");
     }
 
-}, [dispatch, navigate, setComponent]); // Include setComponent in the dependency array
+}, [dispatch, navigate, setComponent]); 
 
   return component; 
 }

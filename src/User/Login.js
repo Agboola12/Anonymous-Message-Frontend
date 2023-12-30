@@ -29,7 +29,7 @@ const Login = () => {
         });
         if (res.data.status) {
           localStorage.setItem('token', res.data.token);
-          navigate('/user-message');
+          navigate('/usermessage');
         }
       })
       .catch((err) => {
