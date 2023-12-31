@@ -5,12 +5,23 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 const UserMessage = () => {
+  // const fullUrl = window.location.href;
+  
+  // const protocol = window.location.protocol;
+  const host = window.location.host;
+  
+  // const pathname = window.location.pathname;
+  
+  // const searchParams = window.location.search;
+  
+  // const hash = window.location.hash;
+
   const navigate = useNavigate();
   const { loginUser: user } = useSelector((state) => state.login)
   const [userMessage, setUserMessage] = useState([])
 
   const Url = () => {
-    return `http://localhost:3000/message/${user._id}`;
+    return `${host}/message/${user._id}`;
   };
   
   useEffect(()=>{
