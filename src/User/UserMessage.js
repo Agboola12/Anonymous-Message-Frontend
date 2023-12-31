@@ -21,7 +21,7 @@ const UserMessage = () => {
   const [userMessage, setUserMessage] = useState([])
 
   const Url = () => {
-    return `${host}/message/${user._id}`;
+    return `https://${host}/message/${user._id}`;
   };
   
   useEffect(()=>{
