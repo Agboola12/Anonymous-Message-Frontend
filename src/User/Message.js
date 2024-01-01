@@ -14,9 +14,7 @@ const Message = () => {
   const message = useRef(null);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-
-
-
+  const [errorMessage, setErrorMessage] = useState(null);
 
 
   const handleSubmit = () => {
@@ -62,9 +60,9 @@ const Message = () => {
                   id='message'
                   name='message'
                   type='text'
-                  maxLength={10}
-                  required
+                  maxLength={100}
                   ref={message}
+                  required
                   className='w-full h-[30vh] border-b border-primary-300 py-1 focus:border-b-2 focus:border-primary-700 transition-colors focus:outline-none peer bg-inherit'
                 />
                 <label
