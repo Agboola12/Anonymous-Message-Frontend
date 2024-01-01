@@ -22,6 +22,13 @@ const Message = () => {
       userId: id,
       message: message.current.value,
     };
+
+    if (message.length > message.current.maxLength) {
+      setErrorMessage('Message exceeds maximum length.');
+      return;
+    }
+    setErrorMessage(null);
+
     setIsLoading(true);
     axios
       .post(BaseUrl + 'message', data)
@@ -71,7 +78,8 @@ const Message = () => {
                 >
                   Say Something about me
                 </label>
-                <p>Current Length: {message.length}</p>
+                <p>The message should not be more than 100 words</p>
+                {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
               </div>
               
             </div>
