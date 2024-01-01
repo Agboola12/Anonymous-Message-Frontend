@@ -115,7 +115,7 @@ const Register = () => {
             <div className='mt-8 text-center'>
               <button
                 disabled={isLoading}
-              onClick={handleSubmit}
+                onClick={handleSubmit}
                 className='bg-gradient-to-r from-secondary to-primary w-full sm:w-2/3 md:w-1/2 lg:w-3/4 xl:w-1/3 h-14 text-white font-bold py-2 px-4 rounded text-center'
               >
                 <b>{isLoading ? 'Signing Up...' : 'Register'}</b>

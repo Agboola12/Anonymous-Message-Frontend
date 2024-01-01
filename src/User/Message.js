@@ -11,9 +11,11 @@ import 'react-toastify/dist/ReactToastify.css';
 const Message = () => {
   const { id } = useParams();
   
-  const message = useRef();
+  const message = useRef(null);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+
+
 
 
 
@@ -59,7 +61,8 @@ const Message = () => {
                 <textarea
                   id='message'
                   name='message'
-                  type='message'
+                  type='text'
+                  maxLength={10}
                   required
                   ref={message}
                   className='w-full h-[30vh] border-b border-primary-300 py-1 focus:border-b-2 focus:border-primary-700 transition-colors focus:outline-none peer bg-inherit'
@@ -70,6 +73,7 @@ const Message = () => {
                 >
                   Say Something about me
                 </label>
+                <p>Current Length: {message.length}</p>
               </div>
               
             </div>
