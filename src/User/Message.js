@@ -96,7 +96,7 @@ const Message = () => {
                   htmlFor='message'
                   className='absolute left-0 top-1 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-700'
                 >
-                  Say Something about {user.username}
+                  Say Something About {user.username}
                 </label>
                 <p>The message should not be more than 100 words</p>
                 {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
