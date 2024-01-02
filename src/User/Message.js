@@ -1,4 +1,4 @@
-import React, {  useRef, useState } from 'react'
+import React, {  useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router';
 import BaseUrl from '../BaseUrl';
 import axios from 'axios';
@@ -15,6 +15,8 @@ const Message = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [user, setUser] = useState([])
+
 
 
   const handleSubmit = () => {
@@ -33,6 +35,7 @@ const Message = () => {
     axios
       .post(BaseUrl + 'message', data)
       .then((res) => {
+        console.log(res.user);
         const result = res.data.message;
         toast.success(result, {
           autoClose: 3000,
@@ -52,6 +55,23 @@ const Message = () => {
         setIsLoading(false);
       });
   };
+
+  useEffect(()=>{
+    getUser();
+  },[])
+
+  const getUser =()=>{
+    axios.get(BaseUrl + `getUserMessage/${id}`)
+    .then(res => {
+      if (res.data.status) {
+        console.log(res.data.data);
+        setUser(res.data.data)
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+  }
 
   return (
     <div className='h-screen py-5 w-full bg-gradient-to-r from-secondary to-primary'>
@@ -76,7 +96,7 @@ const Message = () => {
                   htmlFor='message'
                   className='absolute left-0 top-1 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-700'
                 >
-                  Say Something about me
+                  Say Something about {user.username}
                 </label>
                 <p>The message should not be more than 100 words</p>
                 {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
