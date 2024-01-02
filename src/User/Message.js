@@ -64,7 +64,7 @@ const Message = () => {
     axios.get(BaseUrl + `getUserMessage/${id}`)
     .then(res => {
       if (res.data.status) {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         setUser(res.data.data)
                 }
             })
