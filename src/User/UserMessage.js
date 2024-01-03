@@ -7,7 +7,8 @@ import axios from 'axios';
 const UserMessage = () => {
   // const fullUrl = window.location.href;
   
-  // const protocol = window.location.protocol;
+  const protocol = window.location.protocol;
+  // console.log(protocol);
   const host = window.location.host;
   
   // const pathname = window.location.pathname;
@@ -21,7 +22,8 @@ const UserMessage = () => {
   const [userMessage, setUserMessage] = useState([])
 
   const Url = () => {
-    return `http://${host}/message/${user._id}`;
+    // return `http://${host}/message/${user._id}`;
+    return(`${protocol}//${host}/message/${user._id}`);
   };
   
   useEffect(()=>{
